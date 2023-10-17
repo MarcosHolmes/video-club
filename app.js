@@ -8,6 +8,10 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const directorsRouter = require('./routes/directors');
+const genresRouter = require('./routes/genres');
+const moviesRouter = require('./routes/movies');
+const membersRouter = require('./routes/members');
+const actorsRouter = require('./routes/actors');
 
 const app = express();
 
@@ -25,6 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/directors',directorsRouter);
+app.use('/genres', genresRouter);
+app.use('/movies',moviesRouter);
+app.use('/members', membersRouter);
+app.use('/actors', actorsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
